@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title><%= document_title %></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <%= stylesheet_link_tag 'master', :media => 'all', :cache => false %>
+  <script src="/javascripts/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+  <%= yield :head %>
+</head>
+<body class="<%= body_class %>">
+  <div id="wrapper" class="clearfix">
+    
+    <div id="header" class="clearfix">
+      <h2>[Title]</h2>
+    </div><!-- #header -->
+    <div id="navigation"  class="clearfix">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Page</a></li>
+      </ul>
+    </div><!-- #navigation -->
+    <div class="p-content">
+      <%= render :partial => 'shared/flashes' -%>
+      <%= yield %>
+
+    </div><!-- .p-content -->
+    <div id="footer">
+      <p>Some footer text and a copywrite</p>
+    </div>
+  </div><!-- #wrapper -->
+</body>
+</html>
