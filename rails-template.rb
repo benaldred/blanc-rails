@@ -68,7 +68,11 @@ run 'git clone git://github.com/benaldred/blanc-rails.git'
 
 # copy template files
 run "cp -f blanc-rails/templates/gitignore .gitignore"
-run "cp -f blanc-rails/templates/app/helpers/application_helper.rb app/helpers/application_helper.rb"   
+# helpers
+run "cp -f blanc-rails/templates/app/helpers/application_helper.rb app/helpers/application_helper.rb"
+# views
+run "cp -f blanc-rails/templates/app/views/layouts/application.html.erb app/views/layouts/application.html.erb"
+run "cp -f blanc-rails/templates/app/views/shared/_flashes.html.erb app/views/shared/_flashes.html.erb"   
 
 #delete the templates
 run "rm -rf blanc-rails"
