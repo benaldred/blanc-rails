@@ -26,15 +26,9 @@
   run "cp config/database.yml config/database.yml.example"
   
 # Set up .gitignore files
-  run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
-  run %{find . -type d -empty | grep -v "vendor" | grep -v ".git" | grep -v "tmp" | xargs -I xxx touch xxx/.gitignore}
-  file '.gitignore', <<-END
-.DS_Store
-log/*.log
-tmp/**/*
-config/database.yml
-db/*.sqlite3
-END
+run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
+run %{find . -type d -empty | grep -v "vendor" | grep -v ".git" | grep -v "tmp" | xargs -I xxx touch xxx/.gitignore}
+run "cp -f #{File.dirname(__FILE__)}/templates/gitignore gitignore"
 
 # testing gems
 gem "rspec", :lib => false, :env => :test 
